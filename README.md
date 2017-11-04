@@ -4,32 +4,31 @@ A Simple JS hack to solve telegram math battle problems.
 # Usage:
 - Run telegram on any web browser.
 - In any group chat, run Math Battle game using @gamebot Math Battle.
-- Inject JQuery into the web page.
 - Define the following functions in the developer console:
 ```javascript
 function mathBattleSolver(){
-	xxx= $("#task_x").text();
-	yyy= $("#task_y").text();
-	opp= $("#task_op").text();
-	res= $("#task_res").text();
+	xxx= document.getElementById("task_x").innerHTML;
+	yyy= document.getElementById("task_y").innerHTML;
+	opp= document.getElementById("task_op").innerHTML;
+	res= document.getElementById("task_res").innerHTML;
 	if(opp=="+" && (xxx+yyy) == res){
-		$("#button_correct").click();
+		document.getElementById("button_correct").click();
 	}
 	else if (opp=="–" && (xxx-yyy) == res){
 		console.log("Correct");
-		$("#button_correct").click();
+		document.getElementById("button_correct").click();
 	}
 	else if (opp=="×" && (xxx*yyy) == res){
-		$("#button_correct").click();
+		document.getElementById("button_correct").click();
 		console.log("Correct");
 	}
 	else if (opp=="/" && (xxx/yyy) == res){
-		$("#button_correct").click();
+		document.getElementById("button_correct").click();
 		console.log("Correct");
 	}
 	else{
 		console.log("Wrong");
-		$("#button_wrong").click();
+		document.getElementById("button_wrong").click();
 	}
 }
 
@@ -44,3 +43,7 @@ function mathBattleCaller(numOfTimes){
 ```
 mathBattleCaller(53); // To get a score of 53.
 ```
+
+# Changes
+- 11/4/2017 : No need to inject JQuery in order to run the functions.
+- 11/11/2016 : Initial release (not on github)
